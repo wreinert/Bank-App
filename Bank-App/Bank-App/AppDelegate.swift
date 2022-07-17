@@ -2,29 +2,25 @@
 //  AppDelegate.swift
 //  Bank-App
 //
-//  Created by William Reinert on 07/07/22.
+//  Created by William Reinert on 17/07/22.
 //
 
-import Cocoa
+import UIKit
 
 @main
-class AppDelegate: NSObject, NSApplicationDelegate {
+class AppDelegate: UIResponder, UIApplicationDelegate {
 
-    @IBOutlet var window: NSWindow!
-
-
-    func applicationDidFinishLaunching(_ aNotification: Notification) {
-        // Insert code here to initialize your application
-    }
-
-    func applicationWillTerminate(_ aNotification: Notification) {
-        // Insert code here to tear down your application
-    }
-
-    func applicationSupportsSecureRestorableState(_ app: NSApplication) -> Bool {
+    var window: UIWindow?
+    
+    func application(_ application: UIApplication, didFinishLaunchingWithOptions launchOptions: [UIApplication.LaunchOptionsKey : Any]? = nil) -> Bool {
+        
+        window = UIWindow(frame: UIScreen.main.bounds)
+        window?.makeKeyAndVisible()
+        window?.backgroundColor = .systemBackground
+        window?.rootViewController = ViewController()
+        
         return true
     }
-
-
+    
 }
 
