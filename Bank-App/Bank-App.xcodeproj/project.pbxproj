@@ -7,6 +7,8 @@
 	objects = {
 
 /* Begin PBXBuildFile section */
+		B18BFBD928875B8E00CFF792 /* DataView.xib in Resources */ = {isa = PBXBuildFile; fileRef = B18BFBD828875B8E00CFF792 /* DataView.xib */; };
+		B18BFBDB28875BB100CFF792 /* DataView.swift in Sources */ = {isa = PBXBuildFile; fileRef = B18BFBDA28875BB100CFF792 /* DataView.swift */; };
 		B1A5023D28844898007DB8CE /* AppDelegate.swift in Sources */ = {isa = PBXBuildFile; fileRef = B1A5023C28844898007DB8CE /* AppDelegate.swift */; };
 		B1A502462884489C007DB8CE /* Assets.xcassets in Resources */ = {isa = PBXBuildFile; fileRef = B1A502452884489C007DB8CE /* Assets.xcassets */; };
 		B1A502492884489C007DB8CE /* LaunchScreen.storyboard in Resources */ = {isa = PBXBuildFile; fileRef = B1A502472884489C007DB8CE /* LaunchScreen.storyboard */; };
@@ -16,6 +18,8 @@
 /* End PBXBuildFile section */
 
 /* Begin PBXFileReference section */
+		B18BFBD828875B8E00CFF792 /* DataView.xib */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = file.xib; path = DataView.xib; sourceTree = "<group>"; };
+		B18BFBDA28875BB100CFF792 /* DataView.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = DataView.swift; sourceTree = "<group>"; };
 		B1A5023928844898007DB8CE /* Bank-App.app */ = {isa = PBXFileReference; explicitFileType = wrapper.application; includeInIndex = 0; path = "Bank-App.app"; sourceTree = BUILT_PRODUCTS_DIR; };
 		B1A5023C28844898007DB8CE /* AppDelegate.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = AppDelegate.swift; sourceTree = "<group>"; };
 		B1A502452884489C007DB8CE /* Assets.xcassets */ = {isa = PBXFileReference; lastKnownFileType = folder.assetcatalog; path = Assets.xcassets; sourceTree = "<group>"; };
@@ -56,12 +60,14 @@
 		B1A5023B28844898007DB8CE /* Bank-App */ = {
 			isa = PBXGroup;
 			children = (
-				B1A502C12884C954007DB8CE /* ViewController.swift */,
 				B1A5023C28844898007DB8CE /* AppDelegate.swift */,
+				B1A502C12884C954007DB8CE /* ViewController.swift */,
+				B1A50252288449ED007DB8CE /* LoginView.swift */,
+				B18BFBDA28875BB100CFF792 /* DataView.swift */,
 				B1A502452884489C007DB8CE /* Assets.xcassets */,
 				B1A502472884489C007DB8CE /* LaunchScreen.storyboard */,
 				B1A50250288448D9007DB8CE /* LoginView.xib */,
-				B1A50252288449ED007DB8CE /* LoginView.swift */,
+				B18BFBD828875B8E00CFF792 /* DataView.xib */,
 				B1A5024A2884489C007DB8CE /* Info.plist */,
 			);
 			path = "Bank-App";
@@ -127,6 +133,7 @@
 			files = (
 				B1A502492884489C007DB8CE /* LaunchScreen.storyboard in Resources */,
 				B1A502462884489C007DB8CE /* Assets.xcassets in Resources */,
+				B18BFBD928875B8E00CFF792 /* DataView.xib in Resources */,
 				B1A50251288448D9007DB8CE /* LoginView.xib in Resources */,
 			);
 			runOnlyForDeploymentPostprocessing = 0;
@@ -140,6 +147,7 @@
 			files = (
 				B1A502C22884C954007DB8CE /* ViewController.swift in Sources */,
 				B1A5023D28844898007DB8CE /* AppDelegate.swift in Sources */,
+				B18BFBDB28875BB100CFF792 /* DataView.swift in Sources */,
 				B1A50253288449ED007DB8CE /* LoginView.swift in Sources */,
 			);
 			runOnlyForDeploymentPostprocessing = 0;
@@ -208,7 +216,7 @@
 				GCC_WARN_UNINITIALIZED_AUTOS = YES_AGGRESSIVE;
 				GCC_WARN_UNUSED_FUNCTION = YES;
 				GCC_WARN_UNUSED_VARIABLE = YES;
-				IPHONEOS_DEPLOYMENT_TARGET = 15.5;
+				IPHONEOS_DEPLOYMENT_TARGET = 11.0;
 				MTL_ENABLE_DEBUG_INFO = INCLUDE_SOURCE;
 				MTL_FAST_MATH = YES;
 				ONLY_ACTIVE_ARCH = YES;
@@ -262,7 +270,7 @@
 				GCC_WARN_UNINITIALIZED_AUTOS = YES_AGGRESSIVE;
 				GCC_WARN_UNUSED_FUNCTION = YES;
 				GCC_WARN_UNUSED_VARIABLE = YES;
-				IPHONEOS_DEPLOYMENT_TARGET = 15.5;
+				IPHONEOS_DEPLOYMENT_TARGET = 11.0;
 				MTL_ENABLE_DEBUG_INFO = NO;
 				MTL_FAST_MATH = YES;
 				SDKROOT = iphoneos;
@@ -286,6 +294,7 @@
 				INFOPLIST_KEY_UILaunchStoryboardName = LaunchScreen;
 				INFOPLIST_KEY_UISupportedInterfaceOrientations_iPad = "UIInterfaceOrientationPortrait UIInterfaceOrientationPortraitUpsideDown UIInterfaceOrientationLandscapeLeft UIInterfaceOrientationLandscapeRight";
 				INFOPLIST_KEY_UISupportedInterfaceOrientations_iPhone = "UIInterfaceOrientationPortrait UIInterfaceOrientationLandscapeLeft UIInterfaceOrientationLandscapeRight";
+				IPHONEOS_DEPLOYMENT_TARGET = 11.0;
 				LD_RUNPATH_SEARCH_PATHS = (
 					"$(inherited)",
 					"@executable_path/Frameworks",
@@ -313,6 +322,7 @@
 				INFOPLIST_KEY_UILaunchStoryboardName = LaunchScreen;
 				INFOPLIST_KEY_UISupportedInterfaceOrientations_iPad = "UIInterfaceOrientationPortrait UIInterfaceOrientationPortraitUpsideDown UIInterfaceOrientationLandscapeLeft UIInterfaceOrientationLandscapeRight";
 				INFOPLIST_KEY_UISupportedInterfaceOrientations_iPhone = "UIInterfaceOrientationPortrait UIInterfaceOrientationLandscapeLeft UIInterfaceOrientationLandscapeRight";
+				IPHONEOS_DEPLOYMENT_TARGET = 11.0;
 				LD_RUNPATH_SEARCH_PATHS = (
 					"$(inherited)",
 					"@executable_path/Frameworks",
