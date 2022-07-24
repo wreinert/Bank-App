@@ -7,6 +7,8 @@
 	objects = {
 
 /* Begin PBXBuildFile section */
+		B11FCC3E288DB41000E1FC98 /* LoginViewPresenter.swift in Sources */ = {isa = PBXBuildFile; fileRef = B11FCC3D288DB41000E1FC98 /* LoginViewPresenter.swift */; };
+		B11FCC40288DB86E00E1FC98 /* Login.swift in Sources */ = {isa = PBXBuildFile; fileRef = B11FCC3F288DB86E00E1FC98 /* Login.swift */; };
 		B18BFBD928875B8E00CFF792 /* DataView.xib in Resources */ = {isa = PBXBuildFile; fileRef = B18BFBD828875B8E00CFF792 /* DataView.xib */; };
 		B18BFBDB28875BB100CFF792 /* DataView.swift in Sources */ = {isa = PBXBuildFile; fileRef = B18BFBDA28875BB100CFF792 /* DataView.swift */; };
 		B1A5023D28844898007DB8CE /* AppDelegate.swift in Sources */ = {isa = PBXBuildFile; fileRef = B1A5023C28844898007DB8CE /* AppDelegate.swift */; };
@@ -18,6 +20,8 @@
 /* End PBXBuildFile section */
 
 /* Begin PBXFileReference section */
+		B11FCC3D288DB41000E1FC98 /* LoginViewPresenter.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = LoginViewPresenter.swift; sourceTree = "<group>"; };
+		B11FCC3F288DB86E00E1FC98 /* Login.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = Login.swift; sourceTree = "<group>"; };
 		B18BFBD828875B8E00CFF792 /* DataView.xib */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = file.xib; path = DataView.xib; sourceTree = "<group>"; };
 		B18BFBDA28875BB100CFF792 /* DataView.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = DataView.swift; sourceTree = "<group>"; };
 		B1A5023928844898007DB8CE /* Bank-App.app */ = {isa = PBXFileReference; explicitFileType = wrapper.application; includeInIndex = 0; path = "Bank-App.app"; sourceTree = BUILT_PRODUCTS_DIR; };
@@ -41,6 +45,41 @@
 /* End PBXFrameworksBuildPhase section */
 
 /* Begin PBXGroup section */
+		B11FCC39288DAC9300E1FC98 /* Presenters */ = {
+			isa = PBXGroup;
+			children = (
+				B11FCC3D288DB41000E1FC98 /* LoginViewPresenter.swift */,
+			);
+			path = Presenters;
+			sourceTree = "<group>";
+		};
+		B11FCC3A288DACC900E1FC98 /* Views */ = {
+			isa = PBXGroup;
+			children = (
+				B1A502C12884C954007DB8CE /* ViewController.swift */,
+				B1A50252288449ED007DB8CE /* LoginView.swift */,
+				B18BFBDA28875BB100CFF792 /* DataView.swift */,
+				B1A50250288448D9007DB8CE /* LoginView.xib */,
+				B18BFBD828875B8E00CFF792 /* DataView.xib */,
+			);
+			path = Views;
+			sourceTree = "<group>";
+		};
+		B11FCC3B288DACCF00E1FC98 /* Models */ = {
+			isa = PBXGroup;
+			children = (
+				B11FCC3F288DB86E00E1FC98 /* Login.swift */,
+			);
+			path = Models;
+			sourceTree = "<group>";
+		};
+		B11FCC3C288DAF4D00E1FC98 /* Service */ = {
+			isa = PBXGroup;
+			children = (
+			);
+			path = Service;
+			sourceTree = "<group>";
+		};
 		B1A5023028844898007DB8CE = {
 			isa = PBXGroup;
 			children = (
@@ -60,14 +99,13 @@
 		B1A5023B28844898007DB8CE /* Bank-App */ = {
 			isa = PBXGroup;
 			children = (
-				B1A5023C28844898007DB8CE /* AppDelegate.swift */,
-				B1A502C12884C954007DB8CE /* ViewController.swift */,
-				B1A50252288449ED007DB8CE /* LoginView.swift */,
-				B18BFBDA28875BB100CFF792 /* DataView.swift */,
+				B11FCC3B288DACCF00E1FC98 /* Models */,
+				B11FCC3A288DACC900E1FC98 /* Views */,
+				B11FCC39288DAC9300E1FC98 /* Presenters */,
+				B11FCC3C288DAF4D00E1FC98 /* Service */,
 				B1A502452884489C007DB8CE /* Assets.xcassets */,
+				B1A5023C28844898007DB8CE /* AppDelegate.swift */,
 				B1A502472884489C007DB8CE /* LaunchScreen.storyboard */,
-				B1A50250288448D9007DB8CE /* LoginView.xib */,
-				B18BFBD828875B8E00CFF792 /* DataView.xib */,
 				B1A5024A2884489C007DB8CE /* Info.plist */,
 			);
 			path = "Bank-App";
@@ -145,6 +183,8 @@
 			isa = PBXSourcesBuildPhase;
 			buildActionMask = 2147483647;
 			files = (
+				B11FCC3E288DB41000E1FC98 /* LoginViewPresenter.swift in Sources */,
+				B11FCC40288DB86E00E1FC98 /* Login.swift in Sources */,
 				B1A502C22884C954007DB8CE /* ViewController.swift in Sources */,
 				B1A5023D28844898007DB8CE /* AppDelegate.swift in Sources */,
 				B18BFBDB28875BB100CFF792 /* DataView.swift in Sources */,

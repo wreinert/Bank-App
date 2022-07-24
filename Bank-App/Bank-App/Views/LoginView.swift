@@ -13,6 +13,10 @@ protocol LoginViewDelegate: AnyObject {
 
 class LoginView: UIView {
     
+    @IBOutlet weak var buttonStackView: UIStackView!
+    @IBOutlet weak var userLoginField: UITextField!
+    @IBOutlet weak var passwordLoginField: UITextField!
+    
     var dataView: DataView!
     
     weak var delegate: LoginViewDelegate?
@@ -23,35 +27,26 @@ class LoginView: UIView {
     
     let loginButton: UIButton = {
         let button = UIButton(type: .system)
-        button.backgroundColor = UIColor.gray
+        button.backgroundColor = UIColor.systemBlue
         button.setTitle("Login", for: .normal)
         button.translatesAutoresizingMaskIntoConstraints = false
         button.layer.cornerRadius = 5
         button.setTitleColor(UIColor.white, for: .normal)
-//        button.addTarget(LoginView.self, action: #selector(openNextView), for: .touchUpInside)
         return button
     }()
     
     func setupLoginButton() {
         loginButton.widthAnchor.constraint(equalToConstant: 100).isActive = true
         loginButton.heightAnchor.constraint(equalToConstant: 68).isActive = true
-        loginButton.centerYAnchor.constraint(equalTo: centerYAnchor).isActive = true
         loginButton.isUserInteractionEnabled = true
+        buttonStackView.addArrangedSubview(loginButton)
         let tapGesture = UITapGestureRecognizer(target: self, action: #selector(handleLoginButtonTapped(sender:)))
         loginButton.addGestureRecognizer(tapGesture)
     }
-    
+
     @objc func handleLoginButtonTapped(sender: UIGestureRecognizer) {
         delegate?.didTapLoginButton(in: self)
     }
-    
-//    @objc func openNextView () {
-        //aqui ficaria o presenter
-        //dataView  = DataView()
-        //presenter...
-        //eu deveria estar usando UITapGestureRecognizer????
-//    }
-    
     
 }
 

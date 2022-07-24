@@ -53,19 +53,10 @@
                         </stackView>
                         <stackView opaque="NO" contentMode="scaleToFill" axis="vertical" translatesAutoresizingMaskIntoConstraints="NO" id="zBP-TK-OUK" userLabel="Button Stack View">
                             <rect key="frame" x="157" y="690" width="100" height="68"/>
-                            <subviews>
-                                <button opaque="NO" contentMode="scaleToFill" contentHorizontalAlignment="center" contentVerticalAlignment="center" buttonType="system" lineBreakMode="middleTruncation" translatesAutoresizingMaskIntoConstraints="NO" id="iUf-8V-mgf">
-                                    <rect key="frame" x="0.0" y="0.0" width="100" height="68"/>
-                                    <constraints>
-                                        <constraint firstAttribute="height" constant="68" id="Fge-1T-ZQi"/>
-                                        <constraint firstAttribute="width" constant="100" id="Hf3-q6-Eph"/>
-                                    </constraints>
-                                    <state key="normal" title="Button"/>
-                                    <buttonConfiguration key="configuration" style="filled" title="Login">
-                                        <fontDescription key="titleFontDescription" type="system" pointSize="20"/>
-                                    </buttonConfiguration>
-                                </button>
-                            </subviews>
+                            <constraints>
+                                <constraint firstAttribute="width" constant="100" id="Giy-62-f47"/>
+                                <constraint firstAttribute="height" constant="68" id="ZyW-rh-j3u"/>
+                            </constraints>
                         </stackView>
                     </subviews>
                 </stackView>
@@ -80,6 +71,11 @@
                 <constraint firstItem="fnl-2z-Ty3" firstAttribute="trailing" secondItem="DnZ-6f-YVz" secondAttribute="trailing" id="FuA-4b-lmp"/>
                 <constraint firstItem="DnZ-6f-YVz" firstAttribute="trailing" secondItem="fnl-2z-Ty3" secondAttribute="trailing" id="byF-OQ-qEc"/>
             </constraints>
+            <connections>
+                <outlet property="buttonStackView" destination="zBP-TK-OUK" id="y2g-FO-AfH"/>
+                <outlet property="passwordLoginField" destination="KmB-Fl-VKE" id="g2e-qt-3ib"/>
+                <outlet property="userLoginField" destination="1NB-Pb-sMq" id="ljZ-5v-oxc"/>
+            </connections>
             <point key="canvasLocation" x="-3346" y="7"/>
         </view>
     </objects>

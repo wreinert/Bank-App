@@ -12,7 +12,6 @@ class ViewController: UIViewController, LoginViewDelegate {
     var loginView: LoginView!
     var dataView: DataView!
     
-    
     override func viewDidLoad() {
         super.viewDidLoad()
         
