@@ -12,12 +12,13 @@ protocol LoginViewDelegate: AnyObject {
 }
 
 class LoginView: UIView {
-    
+        
     @IBOutlet weak var buttonStackView: UIStackView!
     @IBOutlet weak var userLoginField: UITextField!
     @IBOutlet weak var passwordLoginField: UITextField!
     
     var dataView: DataView!
+    var login: Login!
     
     weak var delegate: LoginViewDelegate?
     
