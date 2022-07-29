@@ -22,6 +22,7 @@ class ViewController: UIViewController, LoginViewDelegate, LoginViewPresenterDel
         loginView.setupLoginButton()
         loginView.delegate = self
         loginViewPresenter.delegate = self
+        
     }
     
     func didTapLoginButton(in view: LoginView) {

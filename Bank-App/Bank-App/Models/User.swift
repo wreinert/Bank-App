@@ -7,7 +7,10 @@
 
 import Foundation
 
-struct Login {
+struct User {
     var user: String
-    //var password: String
+    var password: String
+    var name: String
+    var account: String
+    var balance: Double
 }

@@ -18,7 +18,7 @@ class LoginView: UIView {
     @IBOutlet weak var passwordLoginField: UITextField!
     
     var dataView: DataView!
-    var login: Login!
+    var user: User!
     
     weak var delegate: LoginViewDelegate?
     
