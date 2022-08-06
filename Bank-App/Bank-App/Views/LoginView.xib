@@ -20,42 +20,44 @@
             <autoresizingMask key="autoresizingMask" widthSizable="YES" heightSizable="YES"/>
             <subviews>
                 <stackView opaque="NO" contentMode="scaleToFill" axis="vertical" distribution="equalSpacing" alignment="center" translatesAutoresizingMaskIntoConstraints="NO" id="DnZ-6f-YVz">
-                    <rect key="frame" x="0.0" y="74" width="414" height="758"/>
+                    <rect key="frame" x="0.0" y="100" width="414" height="732"/>
                     <subviews>
                         <stackView opaque="NO" contentMode="scaleToFill" horizontalCompressionResistancePriority="250" verticalCompressionResistancePriority="250" axis="vertical" alignment="center" translatesAutoresizingMaskIntoConstraints="NO" id="NS3-iO-Dn4" userLabel="Logo Stack View">
                             <rect key="frame" x="144.5" y="0.0" width="125" height="70"/>
                             <subviews>
-                                <imageView clipsSubviews="YES" userInteractionEnabled="NO" contentMode="scaleAspectFit" verticalHuggingPriority="251" image="Logo" translatesAutoresizingMaskIntoConstraints="NO" id="yXg-4z-wsm">
+                                <imageView clipsSubviews="YES" userInteractionEnabled="NO" contentMode="scaleAspectFit" verticalHuggingPriority="251" image="BankLogo" translatesAutoresizingMaskIntoConstraints="NO" id="yXg-4z-wsm">
                                     <rect key="frame" x="0.0" y="0.0" width="125" height="70"/>
                                 </imageView>
                             </subviews>
                         </stackView>
-                        <stackView opaque="NO" contentMode="scaleToFill" horizontalHuggingPriority="750" verticalHuggingPriority="750" axis="vertical" alignment="center" spacing="15" translatesAutoresizingMaskIntoConstraints="NO" id="mIY-lW-5xv" userLabel="Login Stack View">
-                            <rect key="frame" x="107" y="338.5" width="200" height="83"/>
+                        <stackView opaque="NO" contentMode="scaleToFill" horizontalHuggingPriority="750" verticalHuggingPriority="750" axis="vertical" alignment="center" spacing="21" translatesAutoresizingMaskIntoConstraints="NO" id="mIY-lW-5xv" userLabel="Login Stack View">
+                            <rect key="frame" x="32" y="309.5" width="350" height="121"/>
                             <subviews>
                                 <textField opaque="NO" contentMode="scaleToFill" horizontalHuggingPriority="750" verticalHuggingPriority="1000" contentHorizontalAlignment="left" contentVerticalAlignment="center" text="1@outlook.com" borderStyle="roundedRect" placeholder="Login" textAlignment="natural" minimumFontSize="17" translatesAutoresizingMaskIntoConstraints="NO" id="1NB-Pb-sMq" userLabel="LoginField">
-                                    <rect key="frame" x="0.0" y="0.0" width="200" height="34"/>
+                                    <rect key="frame" x="0.0" y="0.0" width="350" height="50"/>
                                     <constraints>
-                                        <constraint firstAttribute="width" constant="200" id="Bgq-Jw-bys"/>
+                                        <constraint firstAttribute="width" constant="350" id="Bgq-Jw-bys"/>
+                                        <constraint firstAttribute="height" constant="50" id="ezo-Zg-aAV"/>
                                     </constraints>
-                                    <fontDescription key="fontDescription" type="system" pointSize="14"/>
+                                    <fontDescription key="fontDescription" type="system" pointSize="15"/>
                                     <textInputTraits key="textInputTraits"/>
                                 </textField>
                                 <textField opaque="NO" contentMode="scaleToFill" verticalHuggingPriority="1000" contentHorizontalAlignment="left" contentVerticalAlignment="center" text="Q@2" borderStyle="roundedRect" placeholder="Password" textAlignment="natural" minimumFontSize="17" translatesAutoresizingMaskIntoConstraints="NO" id="KmB-Fl-VKE" userLabel="PasswordField">
-                                    <rect key="frame" x="0.0" y="49" width="200" height="34"/>
+                                    <rect key="frame" x="0.0" y="71" width="350" height="50"/>
                                     <constraints>
-                                        <constraint firstAttribute="width" constant="200" id="Ptw-Q6-tzK"/>
+                                        <constraint firstAttribute="width" constant="350" id="Ptw-Q6-tzK"/>
+                                        <constraint firstAttribute="height" constant="50" id="Zbx-JY-evg"/>
                                     </constraints>
-                                    <fontDescription key="fontDescription" type="system" pointSize="14"/>
+                                    <fontDescription key="fontDescription" type="system" pointSize="15"/>
                                     <textInputTraits key="textInputTraits" secureTextEntry="YES"/>
                                 </textField>
                             </subviews>
                         </stackView>
                         <stackView opaque="NO" contentMode="scaleToFill" axis="vertical" translatesAutoresizingMaskIntoConstraints="NO" id="zBP-TK-OUK" userLabel="Button Stack View">
-                            <rect key="frame" x="157" y="690" width="100" height="68"/>
+                            <rect key="frame" x="106" y="670" width="202" height="62"/>
                             <constraints>
-                                <constraint firstAttribute="width" constant="100" id="Giy-62-f47"/>
-                                <constraint firstAttribute="height" constant="68" id="ZyW-rh-j3u"/>
+                                <constraint firstAttribute="width" constant="202" id="Giy-62-f47"/>
+                                <constraint firstAttribute="height" constant="62" id="ZyW-rh-j3u"/>
                             </constraints>
                         </stackView>
                     </subviews>
@@ -64,7 +66,7 @@
             <viewLayoutGuide key="safeArea" id="fnl-2z-Ty3"/>
             <color key="backgroundColor" systemColor="systemBackgroundColor"/>
             <constraints>
-                <constraint firstItem="DnZ-6f-YVz" firstAttribute="top" secondItem="fnl-2z-Ty3" secondAttribute="top" constant="30" id="09s-Jn-l1Z"/>
+                <constraint firstItem="DnZ-6f-YVz" firstAttribute="top" secondItem="fnl-2z-Ty3" secondAttribute="top" constant="56" id="09s-Jn-l1Z"/>
                 <constraint firstItem="DnZ-6f-YVz" firstAttribute="bottom" secondItem="fnl-2z-Ty3" secondAttribute="bottom" constant="-30" id="0M3-zl-1s2"/>
                 <constraint firstItem="DnZ-6f-YVz" firstAttribute="leading" secondItem="fnl-2z-Ty3" secondAttribute="leading" id="0Xp-jI-FVt"/>
                 <constraint firstItem="DnZ-6f-YVz" firstAttribute="leading" secondItem="i5M-Pr-FkT" secondAttribute="leading" id="BQI-rC-YAQ"/>
@@ -80,7 +82,7 @@
         </view>
     </objects>
     <resources>
-        <image name="Logo" width="125" height="70"/>
+        <image name="BankLogo" width="125" height="70"/>
         <systemColor name="systemBackgroundColor">
             <color white="1" alpha="1" colorSpace="custom" customColorSpace="genericGamma22GrayColorSpace"/>
         </systemColor>

@@ -10,6 +10,10 @@ import UIKit
 class TransactionCell: UITableViewCell {
     
     @IBOutlet weak var transactionBubble: UIView!
+    @IBOutlet weak var transactionType: UILabel!
+    @IBOutlet weak var transactionDescription: UILabel!
+    @IBOutlet weak var transactionDate: UILabel!
+    @IBOutlet weak var transactionValue: UILabel!
     
     override func awakeFromNib() {
         super.awakeFromNib()

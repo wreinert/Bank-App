@@ -28,8 +28,9 @@ class LoginView: UIView {
     
     let loginButton: UIButton = {
         let button = UIButton(type: .system)
-        button.backgroundColor = UIColor.systemBlue
+        button.backgroundColor = #colorLiteral(red: 0.231372549, green: 0.2941176471, blue: 0.9254901961, alpha: 1)
         button.setTitle("Login", for: .normal)
+        button.titleLabel?.font = UIFont.systemFont(ofSize: 20.0)
         button.translatesAutoresizingMaskIntoConstraints = false
         button.layer.cornerRadius = 5
         button.setTitleColor(UIColor.white, for: .normal)
@@ -37,8 +38,6 @@ class LoginView: UIView {
     }()
     
     func setupLoginButton() {
-        loginButton.widthAnchor.constraint(equalToConstant: 100).isActive = true
-        loginButton.heightAnchor.constraint(equalToConstant: 68).isActive = true
         loginButton.isUserInteractionEnabled = true
         buttonStackView.addArrangedSubview(loginButton)
         let tapGesture = UITapGestureRecognizer(target: self, action: #selector(handleLoginButtonTapped(sender:)))
