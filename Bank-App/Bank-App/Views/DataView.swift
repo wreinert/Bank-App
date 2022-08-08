@@ -19,13 +19,13 @@ class DataView: UIView, UITableViewDataSource {
     @IBOutlet weak var accountBalance: UILabel!
     @IBOutlet weak var logoutImageView: UIImageView!
     
-    var loginView: LoginView!
     weak var delegate: DataViewDelegate?
     
     var dataService = DataService()
     var transactionCell = TransactionCell()
     let url = "https://60bd336db8ab3700175a03b3.mockapi.io/treinamento/payments"
     let userUrl = "https://60bd336db8ab3700175a03b3.mockapi.io/treinamento/Login"
+//    var loginView: LoginView!
     
     override func awakeFromNib() {
         super.awakeFromNib()
@@ -66,7 +66,6 @@ class DataView: UIView, UITableViewDataSource {
     func setupLogoutButton() {
         let tapGesture = UITapGestureRecognizer(target: self, action: #selector(handleLogoutButtonTapped(sender:)))
         logoutImageView.addGestureRecognizer(tapGesture)
-        logoutImageView.isUserInteractionEnabled = true
     }
     
     @objc func handleLogoutButtonTapped(sender: UIGestureRecognizer) {
@@ -77,8 +76,7 @@ class DataView: UIView, UITableViewDataSource {
         return dataService.transactions.count
     }
     
-    func tableView(_ tableView: UITableView, titleForHeaderInSection
-                                section: Int) -> String? {
+    func tableView(_ tableView: UITableView, titleForHeaderInSection section: Int) -> String? {
        return "Recentes"
     }
     

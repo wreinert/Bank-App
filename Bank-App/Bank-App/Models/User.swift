@@ -7,10 +7,10 @@
 
 import Foundation
 
-struct User {
-    var user: String
-    var password: String
-    var name: String
-    var account: String
-    var balance: Double
+struct User: Codable {
+    var customerName: String
+    var accountNumber: String
+    var branchNumber: String
+    var checkingAccountBalance: Double
+    var id: String
 }
