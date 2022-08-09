@@ -25,40 +25,46 @@ class DataView: UIView, UITableViewDataSource {
     var transactionCell = TransactionCell()
     let url = "https://60bd336db8ab3700175a03b3.mockapi.io/treinamento/payments"
     let userUrl = "https://60bd336db8ab3700175a03b3.mockapi.io/treinamento/Login"
-//    var loginView: LoginView!
     
     override func awakeFromNib() {
         super.awakeFromNib()
         
+        fetchUserInfo()
+        fetchStatement()
+        
+        transactionTableView.register(UINib(nibName: "TransactionCell", bundle: nil), forCellReuseIdentifier: "TableViewCell")
+        transactionTableView.dataSource = self
+    }
+    
+    func fetchUserInfo () {
         dataService.fetchUserInfo(url: URL(string: userUrl)!) {(json) in
             switch json {
             case .failure:
                 print("error")
             case .success(let user):
                 DispatchQueue.main.async { [weak self] in
-                guard let self = self else { return }
-                self.dataService.userInfo = user
-                  self.userName.text = String(self.dataService.userInfo[0].customerName)
+                    guard let self = self else { return }
+                    self.dataService.userInfo = user
+                    self.userName.text = String(self.dataService.userInfo[0].customerName)
                     self.accountNumber.text = String("\(self.dataService.userInfo[0].branchNumber) / \(self.dataService.userInfo[0].accountNumber)")
-                  self.accountBalance.text = String("R$\(self.dataService.userInfo[0].checkingAccountBalance)")
-                  
-              }
+                    self.accountBalance.text = String("R$\(self.dataService.userInfo[0].checkingAccountBalance)")
+                    
+                }
             }
         }
-        
-        transactionTableView.register(UINib(nibName: "TransactionCell", bundle: nil), forCellReuseIdentifier: "TableViewCell")
-        transactionTableView.dataSource = self
-        
+    }
+    
+    func fetchStatement() {
         dataService.fetchStatement(url: URL(string: url)!) { (json) in
             switch json {
             case .failure:
                 print("error")
             case .success(let transactions):
-              DispatchQueue.main.async { [weak self] in
-                guard let self = self else { return }
-                self.dataService.transactions = transactions
-                self.transactionTableView.reloadData()
-              }
+                DispatchQueue.main.async { [weak self] in
+                    guard let self = self else { return }
+                    self.dataService.transactions = transactions
+                    self.transactionTableView.reloadData()
+                }
             }
         }
     }

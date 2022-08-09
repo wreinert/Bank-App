@@ -34,10 +34,16 @@ class ViewController: UIViewController, LoginViewDelegate, LoginViewPresenterDel
         UIView.transition(from: dataView, to: loginView, duration: 1, options: .transitionFlipFromLeft, completion: nil)
         loginView.setupLoginButton()
         loginView.delegate = self
+        loginView.userLoginField.text = nil
+        loginView.passwordLoginField.text = nil
     }
     
     func didEnterUsername() {
-        UIView.transition(from: loginView , to: dataView, duration: 1, options: .transitionFlipFromRight, completion:  nil)
+        UIView.transition(from: loginView , to: dataView, duration: 1, options: .transitionFlipFromRight, completion: { finished in
+            self.dataView.fetchStatement()
+            self.dataView.fetchUserInfo()
+        })
     }
+    
 }
 

@@ -13,6 +13,7 @@
 		B10BABBE28936DFB004935C2 /* Alamofire in Frameworks */ = {isa = PBXBuildFile; productRef = B10BABBD28936DFB004935C2 /* Alamofire */; };
 		B11FCC3E288DB41000E1FC98 /* LoginViewPresenter.swift in Sources */ = {isa = PBXBuildFile; fileRef = B11FCC3D288DB41000E1FC98 /* LoginViewPresenter.swift */; };
 		B11FCC40288DB86E00E1FC98 /* User.swift in Sources */ = {isa = PBXBuildFile; fileRef = B11FCC3F288DB86E00E1FC98 /* User.swift */; };
+		B170AFF428A1E7BC00D0589A /* DataViewPresenter.swift in Sources */ = {isa = PBXBuildFile; fileRef = B170AFF328A1E7BC00D0589A /* DataViewPresenter.swift */; };
 		B18BFBD928875B8E00CFF792 /* DataView.xib in Resources */ = {isa = PBXBuildFile; fileRef = B18BFBD828875B8E00CFF792 /* DataView.xib */; };
 		B18BFBDB28875BB100CFF792 /* DataView.swift in Sources */ = {isa = PBXBuildFile; fileRef = B18BFBDA28875BB100CFF792 /* DataView.swift */; };
 		B1936B5B2895FE4900ABF974 /* Statement.swift in Sources */ = {isa = PBXBuildFile; fileRef = B1936B5A2895FE4900ABF974 /* Statement.swift */; };
@@ -30,6 +31,7 @@
 		B10BABBA2893696A004935C2 /* DataService.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = DataService.swift; sourceTree = "<group>"; };
 		B11FCC3D288DB41000E1FC98 /* LoginViewPresenter.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = LoginViewPresenter.swift; sourceTree = "<group>"; };
 		B11FCC3F288DB86E00E1FC98 /* User.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = User.swift; sourceTree = "<group>"; };
+		B170AFF328A1E7BC00D0589A /* DataViewPresenter.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = DataViewPresenter.swift; sourceTree = "<group>"; };
 		B18BFBD828875B8E00CFF792 /* DataView.xib */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = file.xib; path = DataView.xib; sourceTree = "<group>"; };
 		B18BFBDA28875BB100CFF792 /* DataView.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = DataView.swift; sourceTree = "<group>"; };
 		B1936B5A2895FE4900ABF974 /* Statement.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = Statement.swift; sourceTree = "<group>"; };
@@ -59,6 +61,7 @@
 			isa = PBXGroup;
 			children = (
 				B11FCC3D288DB41000E1FC98 /* LoginViewPresenter.swift */,
+				B170AFF328A1E7BC00D0589A /* DataViewPresenter.swift */,
 			);
 			path = Presenters;
 			sourceTree = "<group>";
@@ -209,6 +212,7 @@
 				B11FCC3E288DB41000E1FC98 /* LoginViewPresenter.swift in Sources */,
 				B11FCC40288DB86E00E1FC98 /* User.swift in Sources */,
 				B1A502C22884C954007DB8CE /* ViewController.swift in Sources */,
+				B170AFF428A1E7BC00D0589A /* DataViewPresenter.swift in Sources */,
 				B1A5023D28844898007DB8CE /* AppDelegate.swift in Sources */,
 				B18BFBDB28875BB100CFF792 /* DataView.swift in Sources */,
 				B10BABBB2893696A004935C2 /* DataService.swift in Sources */,

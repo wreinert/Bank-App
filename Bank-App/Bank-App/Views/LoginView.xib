@@ -33,7 +33,7 @@
                         <stackView opaque="NO" contentMode="scaleToFill" horizontalHuggingPriority="750" verticalHuggingPriority="750" axis="vertical" alignment="center" spacing="21" translatesAutoresizingMaskIntoConstraints="NO" id="mIY-lW-5xv" userLabel="Login Stack View">
                             <rect key="frame" x="32" y="309.5" width="350" height="121"/>
                             <subviews>
-                                <textField opaque="NO" contentMode="scaleToFill" horizontalHuggingPriority="750" verticalHuggingPriority="1000" contentHorizontalAlignment="left" contentVerticalAlignment="center" text="1@outlook.com" borderStyle="roundedRect" placeholder="Login" textAlignment="natural" minimumFontSize="17" translatesAutoresizingMaskIntoConstraints="NO" id="1NB-Pb-sMq" userLabel="LoginField">
+                                <textField opaque="NO" contentMode="scaleToFill" horizontalHuggingPriority="750" verticalHuggingPriority="1000" contentHorizontalAlignment="left" contentVerticalAlignment="center" borderStyle="roundedRect" placeholder="Login" textAlignment="natural" minimumFontSize="17" translatesAutoresizingMaskIntoConstraints="NO" id="1NB-Pb-sMq" userLabel="LoginField">
                                     <rect key="frame" x="0.0" y="0.0" width="350" height="50"/>
                                     <constraints>
                                         <constraint firstAttribute="width" constant="350" id="Bgq-Jw-bys"/>
@@ -42,7 +42,7 @@
                                     <fontDescription key="fontDescription" type="system" pointSize="15"/>
                                     <textInputTraits key="textInputTraits"/>
                                 </textField>
-                                <textField opaque="NO" contentMode="scaleToFill" verticalHuggingPriority="1000" contentHorizontalAlignment="left" contentVerticalAlignment="center" text="Q@2" borderStyle="roundedRect" placeholder="Password" textAlignment="natural" minimumFontSize="17" translatesAutoresizingMaskIntoConstraints="NO" id="KmB-Fl-VKE" userLabel="PasswordField">
+                                <textField opaque="NO" contentMode="scaleToFill" verticalHuggingPriority="1000" contentHorizontalAlignment="left" contentVerticalAlignment="center" borderStyle="roundedRect" placeholder="Password" textAlignment="natural" minimumFontSize="17" translatesAutoresizingMaskIntoConstraints="NO" id="KmB-Fl-VKE" userLabel="PasswordField">
                                     <rect key="frame" x="0.0" y="71" width="350" height="50"/>
                                     <constraints>
                                         <constraint firstAttribute="width" constant="350" id="Ptw-Q6-tzK"/>
@@ -69,8 +69,6 @@
                 <constraint firstItem="DnZ-6f-YVz" firstAttribute="top" secondItem="fnl-2z-Ty3" secondAttribute="top" constant="56" id="09s-Jn-l1Z"/>
                 <constraint firstItem="DnZ-6f-YVz" firstAttribute="bottom" secondItem="fnl-2z-Ty3" secondAttribute="bottom" constant="-30" id="0M3-zl-1s2"/>
                 <constraint firstItem="DnZ-6f-YVz" firstAttribute="leading" secondItem="fnl-2z-Ty3" secondAttribute="leading" id="0Xp-jI-FVt"/>
-                <constraint firstItem="DnZ-6f-YVz" firstAttribute="leading" secondItem="i5M-Pr-FkT" secondAttribute="leading" id="BQI-rC-YAQ"/>
-                <constraint firstItem="fnl-2z-Ty3" firstAttribute="trailing" secondItem="DnZ-6f-YVz" secondAttribute="trailing" id="FuA-4b-lmp"/>
                 <constraint firstItem="DnZ-6f-YVz" firstAttribute="trailing" secondItem="fnl-2z-Ty3" secondAttribute="trailing" id="byF-OQ-qEc"/>
             </constraints>
             <connections>
