@@ -8,7 +8,7 @@
 import Foundation
 
 protocol LoginViewPresenterDelegate: AnyObject {
-    func didEnterUsername()
+    func didCheckUsername()
 }
 
 class LoginViewPresenter {
@@ -20,7 +20,7 @@ class LoginViewPresenter {
         
         if username.isEmail() == true || username.isCPF == true {
             if checkPassword(password: password) == true {
-                delegate?.didEnterUsername()
+                delegate?.didCheckUsername()
             } else {
                 print("Senha precisa ter uma letra maiuscula, caracter especial e alfanumerico")
             }

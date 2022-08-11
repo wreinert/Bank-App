@@ -12,6 +12,8 @@ class ViewController: UIViewController, LoginViewDelegate, LoginViewPresenterDel
     var loginView: LoginView!
     var dataView: DataView!
     var loginViewPresenter = LoginViewPresenter()
+    var dataViewPresenter = DataViewPresenter()
+    var dataService = DataService()
     
     override func viewDidLoad() {
         super.viewDidLoad()
@@ -28,6 +30,8 @@ class ViewController: UIViewController, LoginViewDelegate, LoginViewPresenterDel
         loginViewPresenter.checkUsernameValid(username: loginView.userLoginField.text!, password: loginView.passwordLoginField.text!)
         dataView.setupLogoutButton()
         dataView.delegate = self
+        self.dataView.didRequestData()
+//        self.dataViewPresenter.fetchData()
     }
     
     func didTapLogoutButton(in view: DataView) {
@@ -38,10 +42,10 @@ class ViewController: UIViewController, LoginViewDelegate, LoginViewPresenterDel
         loginView.passwordLoginField.text = nil
     }
     
-    func didEnterUsername() {
+    func didCheckUsername() {
         UIView.transition(from: loginView , to: dataView, duration: 1, options: .transitionFlipFromRight, completion: { finished in
-            self.dataView.fetchStatement()
-            self.dataView.fetchUserInfo()
+//            self.dataView.didRequestData()
+//            self.dataViewPresenter.fetchData()
         })
     }
     

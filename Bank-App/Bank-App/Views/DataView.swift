@@ -11,7 +11,7 @@ protocol DataViewDelegate: AnyObject {
     func didTapLogoutButton(in view: DataView)
 }
 
-class DataView: UIView, UITableViewDataSource {
+class DataView: UIView, UITableViewDataSource, DataViewPresenterDelegate {
     
     @IBOutlet weak var transactionTableView: UITableView!
     @IBOutlet weak var userName: UILabel!
@@ -21,6 +21,7 @@ class DataView: UIView, UITableViewDataSource {
     
     weak var delegate: DataViewDelegate?
     
+    var dataViewPresenter = DataViewPresenter()
     var dataService = DataService()
     var transactionCell = TransactionCell()
     let url = "https://60bd336db8ab3700175a03b3.mockapi.io/treinamento/payments"
@@ -29,44 +30,22 @@ class DataView: UIView, UITableViewDataSource {
     override func awakeFromNib() {
         super.awakeFromNib()
         
-        fetchUserInfo()
-        fetchStatement()
-        
         transactionTableView.register(UINib(nibName: "TransactionCell", bundle: nil), forCellReuseIdentifier: "TableViewCell")
         transactionTableView.dataSource = self
+        dataViewPresenter.delegate = self
     }
     
-    func fetchUserInfo () {
-        dataService.fetchUserInfo(url: URL(string: userUrl)!) {(json) in
-            switch json {
-            case .failure:
-                print("error")
-            case .success(let user):
-                DispatchQueue.main.async { [weak self] in
-                    guard let self = self else { return }
-                    self.dataService.userInfo = user
-                    self.userName.text = String(self.dataService.userInfo[0].customerName)
-                    self.accountNumber.text = String("\(self.dataService.userInfo[0].branchNumber) / \(self.dataService.userInfo[0].accountNumber)")
-                    self.accountBalance.text = String("R$\(self.dataService.userInfo[0].checkingAccountBalance)")
-                    
-                }
-            }
-        }
-    }
-    
-    func fetchStatement() {
-        dataService.fetchStatement(url: URL(string: url)!) { (json) in
-            switch json {
-            case .failure:
-                print("error")
-            case .success(let transactions):
-                DispatchQueue.main.async { [weak self] in
-                    guard let self = self else { return }
-                    self.dataService.transactions = transactions
-                    self.transactionTableView.reloadData()
-                }
-            }
-        }
+    func didRequestData() {
+        dataViewPresenter.fetchData()
+//        self.userName.text = String(self.dataService.userInfo[0].customerName)
+//        self.accountNumber.text = String("\(self.dataService.userInfo[0].branchNumber) / \(self.dataService.userInfo[0].accountNumber)")
+//        self.accountBalance.text = String("R$\(self.dataService.userInfo[0].checkingAccountBalance)")
+        
+        self.userName.text = String(self.dataService.userInfo[0].customerName)
+        self.accountNumber.text = String("\(self.dataService.userInfo[0].branchNumber) / \(self.dataService.userInfo[0].accountNumber)")
+        self.accountBalance.text = String("R$\(self.dataService.userInfo[0].checkingAccountBalance)")
+        
+        self.transactionTableView.reloadData()
     }
     
     func setupLogoutButton() {
