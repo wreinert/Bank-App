@@ -30,7 +30,7 @@ class ViewController: UIViewController, LoginViewDelegate, LoginViewPresenterDel
         loginViewPresenter.checkUsernameValid(username: loginView.userLoginField.text!, password: loginView.passwordLoginField.text!)
         dataView.setupLogoutButton()
         dataView.delegate = self
-        self.dataView.didRequestData()
+//        self.dataView.didRequestData()
 //        self.dataViewPresenter.fetchData()
     }
     
@@ -44,7 +44,7 @@ class ViewController: UIViewController, LoginViewDelegate, LoginViewPresenterDel
     
     func didCheckUsername() {
         UIView.transition(from: loginView , to: dataView, duration: 1, options: .transitionFlipFromRight, completion: { finished in
-//            self.dataView.didRequestData()
+            self.dataView.didRequestData()
 //            self.dataViewPresenter.fetchData()
         })
     }

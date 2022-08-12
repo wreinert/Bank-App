@@ -40,11 +40,7 @@ class DataView: UIView, UITableViewDataSource, DataViewPresenterDelegate {
 //        self.userName.text = String(self.dataService.userInfo[0].customerName)
 //        self.accountNumber.text = String("\(self.dataService.userInfo[0].branchNumber) / \(self.dataService.userInfo[0].accountNumber)")
 //        self.accountBalance.text = String("R$\(self.dataService.userInfo[0].checkingAccountBalance)")
-        
-        self.userName.text = String(self.dataService.userInfo[0].customerName)
-        self.accountNumber.text = String("\(self.dataService.userInfo[0].branchNumber) / \(self.dataService.userInfo[0].accountNumber)")
-        self.accountBalance.text = String("R$\(self.dataService.userInfo[0].checkingAccountBalance)")
-        
+//        
         self.transactionTableView.reloadData()
     }
     
