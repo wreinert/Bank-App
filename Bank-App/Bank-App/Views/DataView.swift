@@ -33,15 +33,18 @@ class DataView: UIView, UITableViewDataSource, DataViewPresenterDelegate {
         transactionTableView.register(UINib(nibName: "TransactionCell", bundle: nil), forCellReuseIdentifier: "TableViewCell")
         transactionTableView.dataSource = self
         dataViewPresenter.delegate = self
+        dataViewPresenter.dataView = self
+        dataViewPresenter.dataService = dataService
     }
     
     func didRequestData() {
         dataViewPresenter.fetchData()
-//        self.userName.text = String(self.dataService.userInfo[0].customerName)
-//        self.accountNumber.text = String("\(self.dataService.userInfo[0].branchNumber) / \(self.dataService.userInfo[0].accountNumber)")
-//        self.accountBalance.text = String("R$\(self.dataService.userInfo[0].checkingAccountBalance)")
-//        
-        self.transactionTableView.reloadData()
+    }
+    
+    func updateUserData() {
+        userName.text = String(self.dataService.userInfo[0].customerName)
+        accountNumber.text = String("\(self.dataService.userInfo[0].branchNumber) / \(self.dataService.userInfo[0].accountNumber)")
+        accountBalance.text = String("R$\(self.dataService.userInfo[0].checkingAccountBalance)")
     }
     
     func setupLogoutButton() {
