@@ -29,9 +29,6 @@ class DataView: UIView, UITableViewDataSource {
     override func awakeFromNib() {
         super.awakeFromNib()
         
-        fetchUserInfo()
-        fetchStatement()
-        
         transactionTableView.register(UINib(nibName: "TransactionCell", bundle: nil), forCellReuseIdentifier: "TableViewCell")
         transactionTableView.dataSource = self
     }
