@@ -7,17 +7,24 @@
 
 import Foundation
 
+/* TODO:
+ - Passar as extensions para um arquivo separado, deixar apenas uma extension para os dois métodos
+ - Revisar nomeclatura
+ - Utilizar private para todas as propriedades que não são utilizadas fora da classe
+ - Nuncar usar exclamação
+ - Ler sobre o ARC
+ - Ler sobre CleanCode(livro e videos)
+ */
+
 protocol LoginViewPresenterDelegate: AnyObject {
     func didCheckUsername()
 }
 
 class LoginViewPresenter {
  
-    var dataView: DataView!
     weak var delegate: LoginViewPresenterDelegate?
     
     func checkUsernameValid (username: String, password: String) {
-        
         if username.isEmail() == true || username.isCPF == true {
             if checkPassword(password: password) == true {
                 delegate?.didCheckUsername()
@@ -29,7 +36,7 @@ class LoginViewPresenter {
         }
     }
         
-    func checkPassword(password: String) -> Bool {
+    private func checkPassword(password: String) -> Bool {
         let passWordRegEx = "^(?=.*[A-Z])(?=.*\\d)(?=.*[$@$!%*?&])[A-Z\\d$@$!%*?&]{3,}"
         let passwordTest = NSPredicate(format: "SELF MATCHES %@", passWordRegEx)
         return passwordTest.evaluate(with: password)

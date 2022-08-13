@@ -7,6 +7,12 @@
 
 import Foundation
 
+/* TODO:
+ - Utilizar apenas Decodable
+ - Utilizar sempre let a menos que vc vá alterar o valor
+ - Sempre deixar variáveis do model opcionais
+ - Sempre utilizar sufixos com o tipo da classe, neste caso, UserModel, pois user é um model
+ */
 struct User: Codable {
     var customerName: String
     var accountNumber: String

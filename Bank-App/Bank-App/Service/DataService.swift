@@ -10,6 +10,7 @@ import Alamofire
 
 class DataService {
     
+    // Mover transactions e userInfo para os respectivos presenters
     var transactions: [Payments] = []
     var userInfo: [User] = []
     
