@@ -8,7 +8,7 @@
 import Foundation
 
 protocol DataViewPresenterDelegate: AnyObject {
-    func didRequestData()
+    func requestData()
     func updateUserData()
     func updateTableView()
 }

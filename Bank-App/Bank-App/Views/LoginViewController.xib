@@ -12,6 +12,7 @@
     <objects>
         <placeholder placeholderIdentifier="IBFilesOwner" id="-1" userLabel="File's Owner" customClass="LoginViewController" customModule="Bank_App" customModuleProvider="target">
             <connections>
+                <outlet property="loginButton" destination="gTJ-Zf-73z" id="wm8-MT-DNm"/>
                 <outlet property="passwordTextField" destination="KmB-Fl-VKE" id="6Ol-GL-rP8"/>
                 <outlet property="usernameTextField" destination="1NB-Pb-sMq" id="GfK-tG-A48"/>
                 <outlet property="view" destination="i5M-Pr-FkT" id="98M-70-ZaC"/>
@@ -68,7 +69,7 @@
                                         <color key="baseForegroundColor" white="1" alpha="1" colorSpace="custom" customColorSpace="genericGamma22GrayColorSpace"/>
                                     </buttonConfiguration>
                                     <connections>
-                                        <action selector="loginPressed:" destination="-1" eventType="touchUpInside" id="9fP-LL-zEO"/>
+                                        <action selector="loginButtonPressed:" destination="-1" eventType="touchUpInside" id="9fP-LL-zEO"/>
                                     </connections>
                                 </button>
                             </subviews>

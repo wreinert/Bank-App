@@ -9,7 +9,7 @@ import Foundation
 
 /* TODO:
  - Passar as extensions para um arquivo separado, deixar apenas uma extension para os dois métodos - OK
- - Revisar nomeclatura
+ - Revisar nomeclatura - OK
  - Utilizar private para todas as propriedades que não são utilizadas fora da classe - OK
  - Nuncar usar exclamação - OK
  - Ler sobre o ARC
@@ -24,7 +24,7 @@ class LoginViewPresenter {
  
     weak var delegate: LoginViewPresenterDelegate?
     
-    func checkUsernameValid (username: String, password: String) {
+    func isValidLoginData (username: String, password: String) {
         if username.isEmail() == true || username.isCPF == true {
             if checkPassword(password: password) == true {
                 delegate?.didCheckUsername()

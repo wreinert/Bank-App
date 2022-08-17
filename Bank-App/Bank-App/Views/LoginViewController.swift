@@ -24,18 +24,23 @@ class LoginViewController: UIViewController {
     
     @IBOutlet weak var usernameTextField: UITextField!
     @IBOutlet weak var passwordTextField: UITextField!
+    @IBOutlet weak var loginButton: UIButton!
     
     override func viewDidLoad() {
         super.viewDidLoad()
         
         self.modalPresentationStyle = .fullScreen
         loginViewPresenter.delegate = self
+        setupLoginButton()
     }
     
-    @IBAction func loginPressed(_ sender: Any) {
-        loginViewPresenter.checkUsernameValid(username: usernameTextField.text ?? "", password: passwordTextField.text ?? "")
+    private func setupLoginButton() {
+        loginButton.layer.cornerRadius = 5
     }
     
+    @IBAction func loginButtonPressed(_ sender: Any) {
+        loginViewPresenter.isValidLoginData(username: usernameTextField.text ?? "", password: passwordTextField.text ?? "")
+    }
     
 }
 

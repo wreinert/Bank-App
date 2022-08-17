@@ -7,7 +7,7 @@
 
 import UIKit
 
-class DataViewController: UIViewController, UITableViewDataSource {
+class DataViewController: UIViewController {
 
     @IBOutlet weak var transactionTableView: UITableView!
     @IBOutlet weak var usernameLabel: UILabel!
@@ -23,7 +23,7 @@ class DataViewController: UIViewController, UITableViewDataSource {
         
         setupLogoutButton()
         dataViewPresenter.delegate = self
-        didRequestData()
+        requestData()
         transactionTableView.register(UINib(nibName: "TransactionCell", bundle: nil), forCellReuseIdentifier: "TableViewCell")
         transactionTableView.dataSource = self
     }
@@ -41,6 +41,25 @@ class DataViewController: UIViewController, UITableViewDataSource {
         loginViewController.passwordTextField.text = nil
     }
 
+}
+
+extension DataViewController: DataViewPresenterDelegate {
+    func requestData() {
+        dataViewPresenter.fetchData()
+    }
+    
+    func updateUserData() {
+        usernameLabel.text = String(self.dataViewPresenter.userInfo[0].customerName ?? "")
+        contaLabel.text = String("\(self.dataViewPresenter.userInfo[0].branchNumber ?? "") / \(self.dataViewPresenter.userInfo[0].accountNumber ?? "")")
+        saldoLabel.text = String("R$\(self.dataViewPresenter.userInfo[0].checkingAccountBalance ?? 0.0)")
+    }
+    
+    func updateTableView() {
+        transactionTableView.reloadData()
+    }
+}
+
+extension DataViewController: UITableViewDataSource {
     func tableView(_ tableView: UITableView, numberOfRowsInSection section: Int) -> Int {
         return dataViewPresenter.transactions.count
     }
@@ -55,22 +74,5 @@ class DataViewController: UIViewController, UITableViewDataSource {
         cell.transactionDate?.text = transaction.paymentDate
         cell.transactionValue?.text = transaction.electricityBill
         return cell
-    }
-
-}
-
-extension DataViewController: DataViewPresenterDelegate {
-    func didRequestData() {
-        dataViewPresenter.fetchData()
-    }
-    
-    func updateUserData() {
-        usernameLabel.text = String(self.dataViewPresenter.userInfo[0].customerName ?? "")
-        contaLabel.text = String("\(self.dataViewPresenter.userInfo[0].branchNumber ?? "") / \(self.dataViewPresenter.userInfo[0].accountNumber ?? "")")
-        saldoLabel.text = String("R$\(self.dataViewPresenter.userInfo[0].checkingAccountBalance ?? 0.0)")
-    }
-    
-    func updateTableView() {
-        transactionTableView.reloadData()
     }
 }
