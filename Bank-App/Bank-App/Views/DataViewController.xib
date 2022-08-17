@@ -9,13 +9,18 @@
         <capability name="documents saved in the Xcode 8 format" minToolsVersion="8.0"/>
     </dependencies>
     <objects>
-        <placeholder placeholderIdentifier="IBFilesOwner" id="-1" userLabel="File's Owner" customClass="UIViewController">
+        <placeholder placeholderIdentifier="IBFilesOwner" id="-1" userLabel="File's Owner" customClass="DataViewController" customModule="Bank_App" customModuleProvider="target">
             <connections>
+                <outlet property="contaLabel" destination="kx8-mX-bae" id="e3Q-8q-hh2"/>
+                <outlet property="logoutImageView" destination="qc1-g6-gyo" id="P5B-Y7-xQd"/>
+                <outlet property="saldoLabel" destination="5Q6-kd-Rhn" id="twC-sc-DlJ"/>
+                <outlet property="transactionTableView" destination="PHC-aW-GUI" id="sqa-82-Y6N"/>
+                <outlet property="usernameLabel" destination="XZz-qv-So8" id="dKL-es-5bN"/>
                 <outlet property="view" destination="iN0-l3-epB" id="EKS-1c-hoU"/>
             </connections>
         </placeholder>
         <placeholder placeholderIdentifier="IBFirstResponder" id="-2" customClass="UIResponder"/>
-        <view contentMode="scaleToFill" id="iN0-l3-epB" customClass="DataView" customModule="Bank_App" customModuleProvider="target">
+        <view contentMode="scaleToFill" id="iN0-l3-epB">
             <rect key="frame" x="0.0" y="0.0" width="414" height="896"/>
             <autoresizingMask key="autoresizingMask" widthSizable="YES" heightSizable="YES"/>
             <subviews>
@@ -112,13 +117,6 @@
                 <constraint firstAttribute="bottom" secondItem="LFe-Ep-Obt" secondAttribute="bottom" id="M4I-Dy-oCO"/>
                 <constraint firstAttribute="trailing" secondItem="LFe-Ep-Obt" secondAttribute="trailing" id="kc2-aS-7BP"/>
             </constraints>
-            <connections>
-                <outlet property="accountBalance" destination="5Q6-kd-Rhn" id="Osl-e0-AbW"/>
-                <outlet property="accountNumber" destination="kx8-mX-bae" id="PgQ-3G-uOC"/>
-                <outlet property="logoutImageView" destination="qc1-g6-gyo" id="SJY-uz-JLz"/>
-                <outlet property="transactionTableView" destination="PHC-aW-GUI" id="zXE-Xr-JUl"/>
-                <outlet property="userName" destination="XZz-qv-So8" id="Cmb-xO-Tq4"/>
-            </connections>
             <point key="canvasLocation" x="137.68115942028987" y="96.428571428571431"/>
         </view>
     </objects>

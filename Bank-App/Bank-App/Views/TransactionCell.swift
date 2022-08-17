@@ -19,14 +19,7 @@ class TransactionCell: UITableViewCell {
         super.awakeFromNib()
         
         transactionBubble.layer.cornerRadius = transactionBubble.frame.size.height / 20
-//        transactionBubble.layer.shadowRadius = 5
-//        transactionBubble.layer.shadowColor = UIColor.red.cgColor
-//        transactionBubble.layer.shadowOffset = CGSize(width: 0,height: 0)
     }
-
-//    override func setSelected(_ selected: Bool, animated: Bool) {
-//        super.setSelected(selected, animated: animated)
-//    }
     
     override func layoutSubviews() {
         super.layoutSubviews()
