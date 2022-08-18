@@ -8,13 +8,53 @@
 import Foundation
 
 protocol DataViewPresenterDelegate: AnyObject {
-    func requestData()
     func updateUserData()
     func updateTableView()
 }
 
-class DataViewPresenter {
+//protocol Fumante {
+//    var cigarro: String { get }
+//}
+//
+//class Pessoa: Fumante {
+//    var cigarro: String
+//    var nome: String
+//    var amigo: Fumante
+//
+//    init(nome: String, amigo: Fumante) {
+//        self.nome = nome
+//        self.cigarro = "Malboro"
+//        self.amigo = amigo
+//    }
+//
+//    func pedirCigarro(para fumante: Fumante) {
+//        self.cigarro = fumante.cigarro
+//    }
+//}
+//
+//class Fornecedor: Fumante {
+//    var cigarro: String
+//
+//    init() {
+//        self.cigarro = "Charuto"
+//    }
+//}
+//
+//let felipe = Fornecedor()
+//
+//let william = Pessoa(nome: "William", amigo: felipe)
+//let victor = Pessoa(nome: "Victor", amigo: felipe)
+//
+//william.pedirCigarro(para: victor)
+//william.pedirCigarro(para: felipe)
+
+protocol DataViewPresenterProtocol {
+    func fetchData()
+}
+
+class DataViewPresenter: DataViewPresenterProtocol {
     
+    // mudar nome para viewController
     weak var delegate: DataViewPresenterDelegate?
 
     var dataService: DataService?
@@ -24,8 +64,11 @@ class DataViewPresenter {
     var transactions: [PaymentModel] = []
     var userInfo: [UserModel] = []
     
+    init(service: DataService) {
+        dataService = service
+    }
+    
     func fetchData() {
-        dataService = DataService()
         url = userUrl
         if let urlString = url, let urlToExecute = URL(string: urlString) {
             dataService?.fetchUserInfo(url: urlToExecute) {(json) in

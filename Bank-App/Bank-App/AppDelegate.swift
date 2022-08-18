@@ -12,13 +12,13 @@ import UIKit
 class AppDelegate: UIResponder, UIApplicationDelegate {
 
     var window: UIWindow?
+    var appCoordinator: Coordinator?
     
     func application(_ application: UIApplication, didFinishLaunchingWithOptions launchOptions: [UIApplication.LaunchOptionsKey : Any]? = nil) -> Bool {
         
         window = UIWindow(frame: UIScreen.main.bounds)
-        window?.makeKeyAndVisible()
-        window?.backgroundColor = .systemBackground
-        window?.rootViewController = LoginViewController()
+        appCoordinator = AppCoordinator(window: window)
+        appCoordinator?.start()
         
         return true
     }

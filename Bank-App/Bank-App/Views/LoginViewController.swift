@@ -8,19 +8,13 @@
 import UIKit
 
 /* TODO:
- - Tirar todo o código da LoginView e passar pra LoginViewController - OK
- - Deletar LoginView e todo o código relacionado a ela - OK
- - Jogar DataView para uma controller separadada, e quando precisar, acionar a outra controller - OK
- - Separar código da LoginViewController e código da DataViewController - OK
- - Jogar service para o Presenter - OK
- - Criar uma extension para cada delegate(mais organização) - OK
- 
- - Utizamos uma UIView, ou pra reduzir o tamanho do ViewController ou quando queremos reutilizar a mesma UI em telas diferentes
+ - Inicializar esta tela pelo coordinator, conforme fizemos no DataViewController
  */
 
 class LoginViewController: UIViewController {
     
     var loginViewPresenter = LoginViewPresenter()
+    var coordinator: Coordinator?
     
     @IBOutlet weak var usernameTextField: UITextField!
     @IBOutlet weak var passwordTextField: UITextField!
@@ -46,8 +40,6 @@ class LoginViewController: UIViewController {
 
 extension LoginViewController: LoginViewPresenterDelegate {
     func didCheckUsername() {
-        let dataViewController = DataViewController()
-        dataViewController.modalPresentationStyle = .fullScreen
-        present(dataViewController, animated: true)
+        coordinator?.showDataScreen()
     }
 }

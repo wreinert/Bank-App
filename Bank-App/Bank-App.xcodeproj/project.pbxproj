@@ -8,6 +8,7 @@
 
 /* Begin PBXBuildFile section */
 		AF0AABFA28A73F1400EBEE76 /* String+extensions.swift in Sources */ = {isa = PBXBuildFile; fileRef = AF0AABF928A73F1400EBEE76 /* String+extensions.swift */; };
+		AF443D4C28ADB8D700FA2730 /* Coordiantor.swift in Sources */ = {isa = PBXBuildFile; fileRef = AF443D4B28ADB8D700FA2730 /* Coordiantor.swift */; };
 		B10BABB7289212A8004935C2 /* TransactionCell.swift in Sources */ = {isa = PBXBuildFile; fileRef = B10BABB5289212A8004935C2 /* TransactionCell.swift */; };
 		B10BABB8289212A8004935C2 /* TransactionCell.xib in Resources */ = {isa = PBXBuildFile; fileRef = B10BABB6289212A8004935C2 /* TransactionCell.xib */; };
 		B10BABBB2893696A004935C2 /* DataService.swift in Sources */ = {isa = PBXBuildFile; fileRef = B10BABBA2893696A004935C2 /* DataService.swift */; };
@@ -27,6 +28,7 @@
 
 /* Begin PBXFileReference section */
 		AF0AABF928A73F1400EBEE76 /* String+extensions.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = "String+extensions.swift"; sourceTree = "<group>"; };
+		AF443D4B28ADB8D700FA2730 /* Coordiantor.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = Coordiantor.swift; sourceTree = "<group>"; };
 		B10BABB5289212A8004935C2 /* TransactionCell.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = TransactionCell.swift; sourceTree = "<group>"; };
 		B10BABB6289212A8004935C2 /* TransactionCell.xib */ = {isa = PBXFileReference; lastKnownFileType = file.xib; path = TransactionCell.xib; sourceTree = "<group>"; };
 		B10BABBA2893696A004935C2 /* DataService.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = DataService.swift; sourceTree = "<group>"; };
@@ -71,6 +73,14 @@
 				AF0AABF928A73F1400EBEE76 /* String+extensions.swift */,
 			);
 			path = Extensions;
+			sourceTree = "<group>";
+		};
+		AF443D4A28ADB8C500FA2730 /* Coordinator */ = {
+			isa = PBXGroup;
+			children = (
+				AF443D4B28ADB8D700FA2730 /* Coordiantor.swift */,
+			);
+			path = Coordinator;
 			sourceTree = "<group>";
 		};
 		B11FCC39288DAC9300E1FC98 /* Presenters */ = {
@@ -131,6 +141,7 @@
 		B1A5023B28844898007DB8CE /* Bank-App */ = {
 			isa = PBXGroup;
 			children = (
+				AF443D4A28ADB8C500FA2730 /* Coordinator */,
 				B11FCC3B288DACCF00E1FC98 /* Models */,
 				B11FCC3A288DACC900E1FC98 /* Views */,
 				B11FCC39288DAC9300E1FC98 /* Presenters */,
@@ -231,6 +242,7 @@
 				B11FCC40288DB86E00E1FC98 /* UserModel.swift in Sources */,
 				B1A502C22884C954007DB8CE /* LoginViewController.swift in Sources */,
 				B170AFF428A1E7BC00D0589A /* DataViewPresenter.swift in Sources */,
+				AF443D4C28ADB8D700FA2730 /* Coordiantor.swift in Sources */,
 				B1A5023D28844898007DB8CE /* AppDelegate.swift in Sources */,
 				B10BABBB2893696A004935C2 /* DataService.swift in Sources */,
 			);
