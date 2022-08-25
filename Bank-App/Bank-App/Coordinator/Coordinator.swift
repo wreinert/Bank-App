@@ -16,7 +16,7 @@ import UIKit
 protocol Coordinator {
     func start()
     func showDataScreen()
-    // TODO: dismiss
+    func dismissCurrentScreen()
 }
 
 class AppCoordinator: Coordinator {
@@ -29,11 +29,11 @@ class AppCoordinator: Coordinator {
     }
     
     func start() {
-        // TODO: injetar dependências conforme feito no showDataScreen
-        // let service = ...
-        // let presenter = ...
-        let loginViewController = LoginViewController()
-        loginViewController.coordinator = self
+        let presenter = LoginViewPresenter(coordinator: self)
+        let loginViewController = LoginViewController(presenter: presenter)
+        
+        loginViewController.modalPresentationStyle = .fullScreen
+        
         currentViewController = loginViewController
         
         window?.rootViewController = currentViewController
@@ -44,13 +44,18 @@ class AppCoordinator: Coordinator {
         let service = DataService()
         let presenter = DataViewPresenter(service: service)
         let dataViewController = DataViewController(presenter: presenter)
-        presenter.delegate = dataViewController
+        presenter.viewController = dataViewController
+        dataViewController.coordinator = self
         
         dataViewController.modalPresentationStyle = .fullScreen
         
         currentViewController?.present(dataViewController, animated: true) {
             self.currentViewController = dataViewController
         }
+    }
+    
+    func dismissCurrentScreen() {
+        currentViewController?.dismiss(animated: true)
     }
     
 }

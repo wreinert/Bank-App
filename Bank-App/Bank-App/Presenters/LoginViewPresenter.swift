@@ -16,18 +16,27 @@ import Foundation
  - Ler sobre CleanCode(livro e videos)
  */
 
-protocol LoginViewPresenterDelegate: AnyObject {
-    func didCheckUsername()
+protocol LoginViewPresenterProtocol {
+    func isValidLoginData(username: String, password: String)
 }
 
-class LoginViewPresenter {
- 
-    weak var delegate: LoginViewPresenterDelegate?
+class LoginViewPresenter: LoginViewPresenterProtocol {
+    
+    var coordinator: Coordinator
+//    var viewController: LoginViewControllerProtocol?
+        
+    init(coordinator: Coordinator) {
+        self.coordinator = coordinator
+    }
+    
+    required init?(coder: NSCoder) {
+        fatalError("init(coder:) has not been implemented")
+    }
     
     func isValidLoginData (username: String, password: String) {
         if username.isEmail() == true || username.isCPF == true {
             if checkPassword(password: password) == true {
-                delegate?.didCheckUsername()
+                self.coordinator.showDataScreen()
             } else {
                 print("Senha precisa ter uma letra maiuscula, caracter especial e alfanumerico")
             }

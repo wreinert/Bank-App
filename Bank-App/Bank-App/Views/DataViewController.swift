@@ -8,12 +8,17 @@
 import UIKit
 
 /*
- - Utilizar protocolos para comunicação entre camadas
- - Passar delegate para este arquivo, chamar de DataViewControllerProtocol
+ - Utilizar protocolos para comunicação entre camadas - ok
+ - Passar delegate para este arquivo, chamar de DataViewControllerProtocol - ok
  - Pesquisar sobre generics
  - Usar tableView.register e tableView.dequeue utilizando Generics // Pesquisar o como usar generics
- - Pesquisar sobre injeção de dependências
+ - Pesquisar sobre injeção de dependências - ok
  */
+
+protocol DataViewControllerProtocol {
+    func updateUserData()
+    func updateTableView()
+}
 
 class DataViewController: UIViewController {
 
@@ -23,10 +28,11 @@ class DataViewController: UIViewController {
     @IBOutlet weak var saldoLabel: UILabel!
     @IBOutlet weak var logoutImageView: UIImageView!
     
-    let dataViewPresenter: DataViewPresenter
+    let dataViewPresenter: DataViewPresenterProtocol
+    var coordinator: Coordinator?
     
-    init(presenter: DataViewPresenter) {
-        dataViewPresenter = presenter
+    init(presenter: DataViewPresenterProtocol) {
+        self.dataViewPresenter = presenter
         super.init(nibName: nil, bundle: nil)
     }
     
@@ -42,7 +48,6 @@ class DataViewController: UIViewController {
     }
     
     private func setup() {
-        dataViewPresenter.delegate = self
         setupLogoutButton()
         setupTableView() 
     }
@@ -53,14 +58,7 @@ class DataViewController: UIViewController {
     }
     
     @objc func handleLogoutButtonTapped(sender: UIGestureRecognizer) {
-//        let loginViewController = LoginViewController()
-//        loginViewController.modalPresentationStyle = .fullScreen
-//        present(loginViewController, animated: true)
-//        loginViewController.usernameTextField.text = nil
-//        loginViewController.passwordTextField.text = nil
-        
-        // TODO: Faer no coordinator
-        dismiss(animated: true)
+        coordinator?.dismissCurrentScreen()
     }
     
     func requestData() {
@@ -69,7 +67,7 @@ class DataViewController: UIViewController {
 
 }
 
-extension DataViewController: DataViewPresenterDelegate {
+extension DataViewController: DataViewControllerProtocol {
     func updateUserData() {
         usernameLabel.text = String(self.dataViewPresenter.userInfo[0].customerName ?? "")
         contaLabel.text = String("\(self.dataViewPresenter.userInfo[0].branchNumber ?? "") / \(self.dataViewPresenter.userInfo[0].accountNumber ?? "")")
