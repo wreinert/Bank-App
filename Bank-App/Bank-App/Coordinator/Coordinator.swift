@@ -8,15 +8,10 @@
 import Foundation
 import UIKit
 
-/*
- - Criar o dismiss pra voltar da tela de dados para a tela de login
- - Criar as injeções de dependências do login conforme feito no showDataScreen
- */
-
 protocol Coordinator {
     func start()
     func showDataScreen()
-    // TODO: dismiss
+    func dismissDataScreen()
 }
 
 class AppCoordinator: Coordinator {
@@ -29,11 +24,12 @@ class AppCoordinator: Coordinator {
     }
     
     func start() {
-        // TODO: injetar dependências conforme feito no showDataScreen
-        // let service = ...
-        // let presenter = ...
-        let loginViewController = LoginViewController()
-        loginViewController.coordinator = self
+        let presenter = LoginViewPresenter(coordinator: self)
+        let loginViewController = LoginViewController(presenter: presenter)
+        
+        loginViewController.modalPresentationStyle = .fullScreen
+        presenter.viewController = loginViewController
+        
         currentViewController = loginViewController
         
         window?.rootViewController = currentViewController
@@ -44,13 +40,30 @@ class AppCoordinator: Coordinator {
         let service = DataService()
         let presenter = DataViewPresenter(service: service)
         let dataViewController = DataViewController(presenter: presenter)
-        presenter.delegate = dataViewController
+        presenter.viewController = dataViewController
+        dataViewController.coordinator = self
         
         dataViewController.modalPresentationStyle = .fullScreen
         
         currentViewController?.present(dataViewController, animated: true) {
             self.currentViewController = dataViewController
         }
+    }
+    
+    func dismissDataScreen() {
+        let presenter = LoginViewPresenter(coordinator: self)
+        let loginViewController = LoginViewController(presenter: presenter)
+        
+        presenter.viewController = loginViewController
+        
+        loginViewController.modalPresentationStyle = .fullScreen
+        
+        currentViewController?.present(loginViewController, animated: true) {
+            self.currentViewController = loginViewController
+            loginViewController.usernameTextField.text = ""
+            loginViewController.passwordTextField.text = ""
+        }
+        
     }
     
 }

@@ -7,13 +7,10 @@
 
 import UIKit
 
-/*
- - Utilizar protocolos para comunicação entre camadas
- - Passar delegate para este arquivo, chamar de DataViewControllerProtocol
- - Pesquisar sobre generics
- - Usar tableView.register e tableView.dequeue utilizando Generics // Pesquisar o como usar generics
- - Pesquisar sobre injeção de dependências
- */
+protocol DataViewControllerProtocol {
+    func updateUserData()
+    func updateTableView()
+}
 
 class DataViewController: UIViewController {
 
@@ -23,10 +20,11 @@ class DataViewController: UIViewController {
     @IBOutlet weak var saldoLabel: UILabel!
     @IBOutlet weak var logoutImageView: UIImageView!
     
-    let dataViewPresenter: DataViewPresenter
+    let dataViewPresenter: DataViewPresenterProtocol
+    var coordinator: Coordinator?
     
-    init(presenter: DataViewPresenter) {
-        dataViewPresenter = presenter
+    init(presenter: DataViewPresenterProtocol) {
+        self.dataViewPresenter = presenter
         super.init(nibName: nil, bundle: nil)
     }
     
@@ -42,7 +40,6 @@ class DataViewController: UIViewController {
     }
     
     private func setup() {
-        dataViewPresenter.delegate = self
         setupLogoutButton()
         setupTableView() 
     }
@@ -53,14 +50,7 @@ class DataViewController: UIViewController {
     }
     
     @objc func handleLogoutButtonTapped(sender: UIGestureRecognizer) {
-//        let loginViewController = LoginViewController()
-//        loginViewController.modalPresentationStyle = .fullScreen
-//        present(loginViewController, animated: true)
-//        loginViewController.usernameTextField.text = nil
-//        loginViewController.passwordTextField.text = nil
-        
-        // TODO: Faer no coordinator
-        dismiss(animated: true)
+        coordinator?.dismissDataScreen()
     }
     
     func requestData() {
@@ -69,7 +59,7 @@ class DataViewController: UIViewController {
 
 }
 
-extension DataViewController: DataViewPresenterDelegate {
+extension DataViewController: DataViewControllerProtocol {
     func updateUserData() {
         usernameLabel.text = String(self.dataViewPresenter.userInfo[0].customerName ?? "")
         contaLabel.text = String("\(self.dataViewPresenter.userInfo[0].branchNumber ?? "") / \(self.dataViewPresenter.userInfo[0].accountNumber ?? "")")
@@ -83,8 +73,7 @@ extension DataViewController: DataViewPresenterDelegate {
 
 extension DataViewController: UITableViewDataSource {
     private func setupTableView() {
-        transactionTableView.register(UINib(nibName: "TransactionCell", bundle: nil), forCellReuseIdentifier: "TableViewCell")
-        // objetivo: transactionTableView.register(TableViewCell.self)
+        transactionTableView.registerCell(reusable: TransactionCell.self)
         transactionTableView.dataSource = self
     }
     
@@ -98,8 +87,7 @@ extension DataViewController: UITableViewDataSource {
     
     func tableView(_ tableView: UITableView, cellForRowAt indexPath: IndexPath) -> UITableViewCell {
         let transaction = dataViewPresenter.transactions[indexPath.row]
-        let cell = transactionTableView.dequeueReusableCell(withIdentifier: "TableViewCell", for: indexPath) as! TransactionCell
-        // objetivo: let cell = transactionTableView.dequeueReusableCell(type: TableViewCell.self, for: indexPath)
+        let cell: TransactionCell = transactionTableView.dequeueCell(at: indexPath)
         cell.transactionDate?.text = transaction.paymentDate
         cell.transactionValue?.text = transaction.electricityBill
         return cell

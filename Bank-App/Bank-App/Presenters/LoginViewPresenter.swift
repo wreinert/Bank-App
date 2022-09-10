@@ -6,34 +6,45 @@
 //
 
 import Foundation
+import UIKit
 
-/* TODO:
- - Passar as extensions para um arquivo separado, deixar apenas uma extension para os dois métodos - OK
- - Revisar nomeclatura - OK
- - Utilizar private para todas as propriedades que não são utilizadas fora da classe - OK
- - Nuncar usar exclamação - OK
- - Ler sobre o ARC
- - Ler sobre CleanCode(livro e videos)
- */
-
-protocol LoginViewPresenterDelegate: AnyObject {
-    func didCheckUsername()
+protocol LoginViewPresenterProtocol {
+    func isValidLoginData(username: String, password: String)
 }
 
-class LoginViewPresenter {
- 
-    weak var delegate: LoginViewPresenterDelegate?
+class LoginViewPresenter: LoginViewPresenterProtocol {
+    
+    var coordinator: Coordinator
+    var viewController: LoginViewControllerProtocol?
+    
+    init(coordinator: Coordinator) {
+        self.coordinator = coordinator
+    }
+    
+    required init?(coder: NSCoder) {
+        fatalError("init(coder:) has not been implemented")
+    }
     
     func isValidLoginData (username: String, password: String) {
         if username.isEmail() == true || username.isCPF == true {
             if checkPassword(password: password) == true {
-                delegate?.didCheckUsername()
+                self.coordinator.showDataScreen()
             } else {
-                print("Senha precisa ter uma letra maiuscula, caracter especial e alfanumerico")
+                showAlert(message: "Senha precisa ter uma letra maiuscula, caracter especial e alfanumerico")
             }
         } else {
-            print("Login precisa ser CPF ou email")
+            showAlert(message: "Login precisa ser CPF ou email")
         }
+    }
+    
+    private func showAlert(message: String) {
+        let invalidLoginAlert = UIAlertController(
+                   title: "Login Inválido",
+                   message: message,
+                   preferredStyle: UIAlertController.Style.alert)
+        
+        invalidLoginAlert.addAction(UIAlertAction(title: "OK", style: .default))
+        viewController?.showAlertPopUp(alert: invalidLoginAlert)
     }
         
     private func checkPassword(password: String) -> Bool {
