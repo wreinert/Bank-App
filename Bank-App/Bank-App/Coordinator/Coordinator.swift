@@ -16,7 +16,7 @@ import UIKit
 protocol Coordinator {
     func start()
     func showDataScreen()
-    func dismissCurrentScreen()
+    func dismissDataScreen()
 }
 
 class AppCoordinator: Coordinator {
@@ -54,8 +54,18 @@ class AppCoordinator: Coordinator {
         }
     }
     
-    func dismissCurrentScreen() {
-        currentViewController?.dismiss(animated: true)
+    func dismissDataScreen() {
+        let presenter = LoginViewPresenter(coordinator: self)
+        let loginViewController = LoginViewController(presenter: presenter)
+        
+        loginViewController.modalPresentationStyle = .fullScreen
+        
+        currentViewController?.present(loginViewController, animated: true) {
+            self.currentViewController = loginViewController
+            loginViewController.usernameTextField.text = ""
+            loginViewController.passwordTextField.text = ""
+        }
+        
     }
     
 }

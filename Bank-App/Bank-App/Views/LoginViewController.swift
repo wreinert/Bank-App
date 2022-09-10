@@ -7,10 +7,6 @@
 
 import UIKit
 
-/* TODO:
- - Inicializar esta tela pelo coordinator, conforme fizemos no DataViewController
- */
-
 class LoginViewController: UIViewController {
     
     var loginViewPresenter: LoginViewPresenterProtocol

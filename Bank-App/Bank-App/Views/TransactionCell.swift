@@ -28,3 +28,5 @@ class TransactionCell: UITableViewCell {
     }
     
 }
+
+extension UITableViewCell: Reusable {}

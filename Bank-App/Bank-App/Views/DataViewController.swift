@@ -58,7 +58,7 @@ class DataViewController: UIViewController {
     }
     
     @objc func handleLogoutButtonTapped(sender: UIGestureRecognizer) {
-        coordinator?.dismissCurrentScreen()
+        coordinator?.dismissDataScreen()
     }
     
     func requestData() {
@@ -81,8 +81,7 @@ extension DataViewController: DataViewControllerProtocol {
 
 extension DataViewController: UITableViewDataSource {
     private func setupTableView() {
-        transactionTableView.register(UINib(nibName: "TransactionCell", bundle: nil), forCellReuseIdentifier: "TableViewCell")
-        // objetivo: transactionTableView.register(TableViewCell.self)
+        transactionTableView.registerCell(reusable: TransactionCell.self)
         transactionTableView.dataSource = self
     }
     
@@ -96,8 +95,7 @@ extension DataViewController: UITableViewDataSource {
     
     func tableView(_ tableView: UITableView, cellForRowAt indexPath: IndexPath) -> UITableViewCell {
         let transaction = dataViewPresenter.transactions[indexPath.row]
-        let cell = transactionTableView.dequeueReusableCell(withIdentifier: "TableViewCell", for: indexPath) as! TransactionCell
-        // objetivo: let cell = transactionTableView.dequeueReusableCell(type: TableViewCell.self, for: indexPath)
+        let cell: TransactionCell = transactionTableView.dequeueCell(at: indexPath)
         cell.transactionDate?.text = transaction.paymentDate
         cell.transactionValue?.text = transaction.electricityBill
         return cell

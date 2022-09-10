@@ -7,15 +7,6 @@
 
 import Foundation
 
-/* TODO:
- - Passar as extensions para um arquivo separado, deixar apenas uma extension para os dois métodos - OK
- - Revisar nomeclatura - OK
- - Utilizar private para todas as propriedades que não são utilizadas fora da classe - OK
- - Nuncar usar exclamação - OK
- - Ler sobre o ARC
- - Ler sobre CleanCode(livro e videos)
- */
-
 protocol LoginViewPresenterProtocol {
     func isValidLoginData(username: String, password: String)
 }
@@ -23,7 +14,6 @@ protocol LoginViewPresenterProtocol {
 class LoginViewPresenter: LoginViewPresenterProtocol {
     
     var coordinator: Coordinator
-//    var viewController: LoginViewControllerProtocol?
         
     init(coordinator: Coordinator) {
         self.coordinator = coordinator

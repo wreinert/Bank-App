@@ -10,8 +10,6 @@ import Alamofire
 
 class DataService {
     
-    // Mover transactions e userInfo para os respectivos presenters - OK
-    
     func fetchStatement (url: URL, completion: @escaping (Result<[PaymentModel], Error>) -> Void) {
         AF.request(url).validate().responseDecodable(of: [PaymentModel].self) { response in
             guard let transactions = response.value else {
