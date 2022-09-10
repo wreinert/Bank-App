@@ -7,7 +7,11 @@
 
 import UIKit
 
-class LoginViewController: UIViewController {
+protocol LoginViewControllerProtocol {
+    func showAlertPopUp(alert: UIAlertController)
+}
+
+class LoginViewController: UIViewController, LoginViewControllerProtocol {
     
     var loginViewPresenter: LoginViewPresenterProtocol
     
@@ -36,5 +40,9 @@ class LoginViewController: UIViewController {
     
     @IBAction func loginButtonPressed(_ sender: Any) {
         loginViewPresenter.isValidLoginData(username: usernameTextField.text ?? "", password: passwordTextField.text ?? "")
+    }
+    
+    func showAlertPopUp(alert: UIAlertController) {
+        self.present(alert, animated: false)
     }
 }

@@ -6,6 +6,7 @@
 //
 
 import Foundation
+import UIKit
 
 protocol LoginViewPresenterProtocol {
     func isValidLoginData(username: String, password: String)
@@ -14,7 +15,8 @@ protocol LoginViewPresenterProtocol {
 class LoginViewPresenter: LoginViewPresenterProtocol {
     
     var coordinator: Coordinator
-        
+    var viewController: LoginViewControllerProtocol?
+    
     init(coordinator: Coordinator) {
         self.coordinator = coordinator
     }
@@ -28,11 +30,21 @@ class LoginViewPresenter: LoginViewPresenterProtocol {
             if checkPassword(password: password) == true {
                 self.coordinator.showDataScreen()
             } else {
-                print("Senha precisa ter uma letra maiuscula, caracter especial e alfanumerico")
+                showAlert(message: "Senha precisa ter uma letra maiuscula, caracter especial e alfanumerico")
             }
         } else {
-            print("Login precisa ser CPF ou email")
+            showAlert(message: "Login precisa ser CPF ou email")
         }
+    }
+    
+    private func showAlert(message: String) {
+        let invalidLoginAlert = UIAlertController(
+                   title: "Login Inválido",
+                   message: message,
+                   preferredStyle: UIAlertController.Style.alert)
+        
+        invalidLoginAlert.addAction(UIAlertAction(title: "OK", style: .default))
+        viewController?.showAlertPopUp(alert: invalidLoginAlert)
     }
         
     private func checkPassword(password: String) -> Bool {

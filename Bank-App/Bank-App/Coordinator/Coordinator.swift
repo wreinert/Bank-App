@@ -8,11 +8,6 @@
 import Foundation
 import UIKit
 
-/*
- - Criar o dismiss pra voltar da tela de dados para a tela de login
- - Criar as injeções de dependências do login conforme feito no showDataScreen
- */
-
 protocol Coordinator {
     func start()
     func showDataScreen()
@@ -33,6 +28,7 @@ class AppCoordinator: Coordinator {
         let loginViewController = LoginViewController(presenter: presenter)
         
         loginViewController.modalPresentationStyle = .fullScreen
+        presenter.viewController = loginViewController
         
         currentViewController = loginViewController
         
@@ -57,6 +53,8 @@ class AppCoordinator: Coordinator {
     func dismissDataScreen() {
         let presenter = LoginViewPresenter(coordinator: self)
         let loginViewController = LoginViewController(presenter: presenter)
+        
+        presenter.viewController = loginViewController
         
         loginViewController.modalPresentationStyle = .fullScreen
         

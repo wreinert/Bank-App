@@ -7,14 +7,6 @@
 
 import UIKit
 
-/*
- - Utilizar protocolos para comunicação entre camadas - ok
- - Passar delegate para este arquivo, chamar de DataViewControllerProtocol - ok
- - Pesquisar sobre generics
- - Usar tableView.register e tableView.dequeue utilizando Generics // Pesquisar o como usar generics
- - Pesquisar sobre injeção de dependências - ok
- */
-
 protocol DataViewControllerProtocol {
     func updateUserData()
     func updateTableView()
